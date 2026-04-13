@@ -28,4 +28,4 @@ print("总个数:", total_count)
 print("偶数个数:", even_count)
 print("奇数个数:", odd_count)
 print("大于10的数字总和:", big_total)
-
+print("Git is watching my changes.")
