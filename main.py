@@ -1,14 +1,11 @@
 raw_text = input("请输入一串数字:")
 
-if raw_text.strip() == "":
-    print("请输入正确的数据")
-else:
+try:
     parts = raw_text.split()
     numbers = []
 
     for text_num in parts:
         numbers.append(int(text_num))
-
     total_count = 0
     even_count = 0
     odd_count = 0
@@ -40,3 +37,5 @@ else:
     print("大于10的数字的个数:", big_count)
     print("大于10的数的总和:", big_sum)
     print("这些总数的平均数为：", average)
+except:
+    print("请输入正确的整数数据")
