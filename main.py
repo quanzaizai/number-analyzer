@@ -49,15 +49,14 @@ def analyzer_numbers(numbers):
     }
 
 def print_result(numbers, result):
-    print("总和为：",result["total_sum"])
-    print("总数个数为:",result["total_count"])
-    print("偶数个数为:",result["even_count"])
-    print("奇数个数为:",result["odd_count"])
-    print("大于10的总数个数:",result["big_count"])
-    print("大于10的个数的总数为:",result["big_sum"])
-    print("原始数字列表:",result["numbers"])
-    print("平均数为:"result["average"])
-
+     print(f"总和为:{result['total_sum']}")
+     print(f"总数的个数为:{result['total_count']}")
+     print(f"偶数个数为:{result['even_count']}")
+     print(f"奇数个数为:{result['odd_count']}")
+     print(f"大于10的数的总和为:{result['big_sum']}")
+     print(f"大于10的数的个数为:{result['big_count']}")
+     print(f"这些数的原始列表为:{numbers}")
+     print(f"这些数的平均数为:{result['average']}")
 
 
 def main():
