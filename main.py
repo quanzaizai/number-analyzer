@@ -4,6 +4,10 @@ def parse_numbers():
     if raw_text =='q':
         return 'q'
     
+    if raw_text =='h':
+        return 'h'
+    
+    
     if raw_text.strip() == "":
         print("请至少输入一个整数")
         return None
@@ -59,16 +63,45 @@ def print_result(numbers, result):
      print(f"这些数的平均数为:{result['average']}")
 
 
+def save_result(numbers, result):
+    with open("history.txt", "a", encoding="utf-8") as f:
+        print(f"原始数字列表为：{numbers}", file=f)
+        print(f"所有数的总和为：{result['total_sum']}", file=f)
+        print(f"所有数的个数为：{result['total_count']}", file=f)
+        print(f"所有偶数的个数为：{result['even_count']}", file=f)
+        print(f"所有奇数的个数为：{result['odd_count']}", file=f)
+        print(f"大于10的数的个数为：{result['big_count']}", file=f)
+        print(f"大于10的数的总和为：{result['big_sum']}", file=f)
+        print(f"所有数的平均数为：{result['average']}", file=f)
+        print("-" * 30, file=f)
+
+
+def read_history():
+    try:
+        with open("history.txt", "r", encoding="utf-8") as f:
+            content = f.read()
+            print(content)
+    except FileNotFoundError:
+        print("当前还没有历史记录")
+
+          
 def main():
     while True:
         numbers = parse_numbers()
+
         if numbers == 'q':
-             print("程序结束")
-             break
+            print("程序结束")
+            break
+
+        if numbers == 'h':
+            read_history()
+            continue
+
         if numbers is not None:
             result = analyzer_numbers(numbers)
-            print_result(numbers,result)
+            print_result(numbers, result)
+            save_result(numbers, result)
+
+
 if __name__ == "__main__" :
     main()
-
-
